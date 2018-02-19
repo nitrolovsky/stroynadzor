@@ -11,90 +11,90 @@
         </div>
         <table class="table table-hover">
             <thead>
-                <tr class="row">
-                    <th class="col-4">
+                <tr class="">
+                    <th class="">
                         ФИО инспектора
                     </th>
-                    <th class="col-2">
+                    <th class="">
                         Количество жилых объектов под надзором
                     </th>
-                    <th class="col-2">
+                    <th class="">
                         Видеотрансляция добавлена в Стройформ
                     </th>
-                    <th class="col-2">
+                    <th class="">
                         Строительство не начато
                     </th>
-                    <th class="col-2">
+                    <th class="">
                         Необходимо добавить видеотрансляцию
                     </th>
                 </tr>
             <tbody>
-                <tr class="row">
-                    <td class="col-4">
+                <tr class="">
+                    <td class="">
                         Всего
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat[0]['objects'] }}
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat[0]['video'] }}
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat[0]['no_start'] }}
                     </td>
-                    <td class="text-center col-2 bold">
+                    <td class="  bold">
                         {{ $stat[0]['need_video'] }}
                     </td>
                 </tr>
-                <tr class="row">
-                    <td class="col-4">
+                <tr class="">
+                    <td class="">
                         <a href="/objects/right">Правобережная зона</a>
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat['right']['objects'] }}
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat['right']['video'] }}
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat['right']['no_start'] }}
                     </td>
-                    <td class="text-center col-2 bold">
+                    <td class="  bold">
                         {{ $stat['right']['need_video'] }}
                     </td>
                 </tr>
-                <tr class="row">
-                    <td class="col-4">
+                <tr class="">
+                    <td class="">
                         <a href="/objects/left">Левобережная зона</a>
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat['left']['objects'] }}
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat['left']['video'] }}
                     </td>
-                    <td class="text-center col-2">
+                    <td class=" ">
                         {{ $stat['left']['no_start'] }}
                     </td>
-                    <td class="text-center col-2 bold">
+                    <td class="  bold">
                         {{ $stat['left']['need_video'] }}
                     </td>
                 </tr>
                 @foreach ($inspectors as $inspector)
-                    <tr class="row">
-                        <td class="col-4">
+                    <tr class="">
+                        <td class="">
                             <a href="/inspectors/{{ $inspector->id }}">{{ $inspector->lastname}} {{ $inspector->firstname }} {{ $inspector->middlename }}</a>
                         </td>
-                        <td class="text-center col-2">
+                        <td class=" ">
                             {{ $stat[$inspector->id]['objects'] }}
                         </td>
-                        <td class="text-center col-2">
+                        <td class=" ">
                             {{ $stat[$inspector->id]['video'] }}
                         </td>
-                        <td class="text-center col-2">
+                        <td class=" ">
                             {{ $stat[$inspector->id]['no_start'] }}
                         </td>
-                        <td class="text-center col-2 bold">
+                        <td class="  bold">
                             {{ $stat[$inspector->id]['need_video'] }}
                         </td>
                     </tr>

@@ -22,24 +22,25 @@
                                 <iframe class="embed-responsive-item bg-danger" src="" allowfullscreen></iframe>
                             @elseif ($object->status == 'Строительство не начато')
                                 <iframe class="embed-responsive-item bg-light" src="" allowfullscreen></iframe>
+                            @elseif ($object->status == 'Смонтировать камеру Службы')
+                                <iframe class="embed-responsive-item bg-info" src="" allowfullscreen></iframe>
                             @else
                                 <iframe class="embed-responsive-item bg-dark" src="{{ $object->video_url or '' }}" allowfullscreen></iframe>
                             @endif
 
                         </div>
-
-                            <button type="button" class="btn btn-outline-primary btn-sm my-2" data-toggle="modal" data-target="#add_{{ $object->id }}">Добавить ссылку</button>&nbsp;&nbsp;
-                            <button type="button" class="btn btn-outline-warning btn-sm my-2" data-toggle="modal" data-target="#mounting_{{ $object->id }}">Смонтировать камеру</button>&nbsp;&nbsp;
-                            <button type="button" class="btn btn-outline-danger btn-sm my-2" data-toggle="modal" data-target="#dismounting_{{ $object->id }}">Демонтировать камеру</button>
-
-                            <p>
-                                <b>{{ $object->status or '' }}</b>
-                                <br>
-                                {{ $object->address }}
-                                <br>
-                                <a href={{ $object->video_url or '' }} target="_blank">{{ $object->video_url or '' }}</a>
-                            </p>
-                            <br>
+                        <div class="my-2">
+                            <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal" data-target="#add_{{ $object->id }}" role="button">Добавить ссылку</button>&nbsp;&nbsp;
+                            <button type="button" class="btn btn-warning btn-sm my-2" data-toggle="modal" data-target="#mounting_{{ $object->id }}" role="button">Смонтировать камеру</button>&nbsp;&nbsp;
+                            <button type="button" class="btn btn-danger btn-sm my-2" data-toggle="modal" data-target="#dismounting_{{ $object->id }}" role="button">Демонтировать камеру</button>
+                        </div>
+                            <table class="table table-sm table-hover">
+                                <tr><td>Статус</td><td><b>{{ $object->status or '' }}</b></td></tr>
+                                <tr><td>Номер разрешения</td><td>{{ $object->resolution_number }}</td></tr>
+                                <tr><td>Адрес</td><td>{{ $object->address }}</td></tr>
+                                <tr><td>Застройщик</td><td>{{ $object->developer_name }}</td></tr>
+                                <tr><td>Ссылка на видеотрансляцию</td><td>  <a href={{ $object->video_url or '' }} target="_blank">{{ $object->video_url or '' }}</a></td></tr>
+                            </table>
                         </div>
 
                         <div class="modal fade" id="add_{{ $object->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

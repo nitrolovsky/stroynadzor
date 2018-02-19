@@ -22,6 +22,7 @@ class CreateInspectorsTable extends Migration
             $table->string('lastname')->nullable();
             $table->string('firstname')->nullable();
             $table->string('middlename')->nullable();
+            $table->string('email')->nullable();
 
             $table->string('number_objects')->nullable();
         });

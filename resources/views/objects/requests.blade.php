@@ -9,31 +9,52 @@
                 </h1>
             </div>
         </div>
-        @foreach ($objects as $key => $object)
-            <div class="row">
-                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>
-                                {{ $object->status_request }}
-                                <br>
-                                {{ $inspectors[$object->inspector_id ]['lastname'] }} {{ $inspectors[$object->inspector_id ]['firstname'] }} {{ $inspectors[$object->inspector_id ]['middlename'] }}<br>
-                                <span class="regular">{{ $object->status_request_start }}</span>
-                            </h5>
-                            <p class="mb-0">
-                                {{ $object->address }}
-                            </p>
-                            <br>
-                            <p class="mb-0">
-                                <b>Контактное лицо:</b><br>
-                                {{ $object->contact_fio }}<br>
-                                {{ $object->contact_phone }}<br>
-                                {{ $object->contact_email }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    Описание и примечание
+                </td>
+                <td>
+                    № п/п
+                </td>
+                <td>
+                    Застройщик
+                </td>
+                <td>
+                    Адрес строительства
+                </td>
+                <td>
+                    Ответственный инспектор
+                </td>
+                <td>
+                    Контактное лицо
+                </td>
+            </tr>
+            @foreach ($objects as $key => $object)
+                <tr>
+                    <td>
+                        <b>{{ $object->status_request }}</b><br><br>
+                        {{ $object->note or '' }}
+                    </td>
+                    <td>
+                        {{ ++$key }}
+                    </td>
+                    <td>
+                        {{ $object->developer_name or '' }}
+                    </td>
+                    <td>
+                        {{ $object->address }}
+                    </td>
+                    <td>
+                        {{ $inspectors[$object->inspector_id - 1 ]['lastname'] }} {{ $inspectors[$object->inspector_id - 1 ]['firstname'] }} {{ $inspectors[$object->inspector_id - 1 ]['middlename'] }}
+                    </td>
+                    <td>
+                        {{ $object->contact_fio or '' }}<br><br>
+                        {{ $object->contact_phone or '' }}<br>
+                        {{ $object->contact_email or '' }}
+                    </td>
+                </tr>
+            @endforeach
+        </table>
     </div>
 @endsection

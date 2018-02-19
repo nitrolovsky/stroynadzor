@@ -144,6 +144,7 @@ class ObjectController extends Controller
     {
         $object = Object::find(Request::get("id"));
 
+        $object->status = 'Смонтировать камеру Службы';
         $object->status_request = 'Смонтировать камеру Службы';
         $object->status_request_start = \Carbon\Carbon::now();
         $object->contact_fio = Request::get('contact_fio');
